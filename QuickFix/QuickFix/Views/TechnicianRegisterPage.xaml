@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:QuickFix.Views.Controls;assembly=QuickFix"
+               xmlns:components="clr-namespace:QuickFix.Components"
+             x:Class="QuickFix.Views.TechnicianRegisterPage"
+              NavigationPage.HasNavigationBar="False">
+
+
+
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Frame BorderColor="#ffff"
+                   BackgroundColor="#ffff"
+                   HasShadow="False"
+                   HeightRequest="65"
+                   WidthRequest="120"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"
+                   Padding="0">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor"
+                                            Value="#FF3300" />
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="#ffff" />
+                                    <Setter Property="BorderColor"
+                                            Value="#F3F2F1" />
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Grid Margin="4"
+                      WidthRequest="100">
+                    <Grid WidthRequest="18"
+                          HeightRequest="18"
+                          HorizontalOptions="End"
+                          VerticalOptions="Start">
+                        <Ellipse Stroke="Blue"
+                                 Fill="White"
+                                 WidthRequest="16"
+                                 HeightRequest="16"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                        <Ellipse x:Name="check"
+                                 Fill="HotPink"
+                                 WidthRequest="8"
+                                 HeightRequest="8"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                    </Grid>
+                    <ContentPresenter />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="ControlTemplate"
+                    Value="{StaticResource RadioButtonTemplate}" />
+        </Style>
+
+    </ContentPage.Resources>
+
+
+
+
+
+    <!--Code for new Material Outline Custom Entry-->
+
+
+
+
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="White">
+
+            <StackLayout>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large" TextColor="red">Technician Registration Form</Label>
+
+
+                <StackLayout Margin="0,5,0,0">
+                    <StackLayout>
+
+                        <Image x:Name="resultImage" Source="user.png"
+                           Aspect="Fill"
+                           BackgroundColor="LightGray"
+                           WidthRequest="100"   
+                           HeightRequest="100"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                Center="50,50"
+                                RadiusX="50"
+                                RadiusY="50"/>
+                            </Image.Clip>
+
+                        </Image>
+                        <Grid Margin="20,0,20,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="Take Image" Clicked="Take_Image_Button_Clicked"/>
+
+                            <Button  Grid.Column="1" Text="Browse" Clicked="Browse_Image_Button_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="General Information" FontSize="Small" FontAttributes="bold"></Label>
+                <StackLayout Margin="10,10,10,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <components:OutlinedMaterialEntry
+                            PlaceholderText="First Name"
+                            x:Name="firstName"
+                            Keyboard="Text"
+                            ReturnType="Next"
+                        />
+
+                        <components:OutlinedMaterialEntry
+                            PlaceholderText="Last Name"
+                            Grid.Column="1"
+                            x:Name="lastName"
+                            Keyboard="Text"
+                            ReturnType="Next"
+                        />
+                    </Grid>
+
+                </StackLayout>
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Gender:" FontSize="Title" HorizontalOptions="Center"  TextColor="red" />
+                        <Label Text="Technician:" FontSize="Title" HorizontalOptions="Center" Grid.Column="1" TextColor="red" />
+                    </Grid>
+                </StackLayout>
+
+
+                <StackLayout Margin="5,0,5,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  />
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Frame  HeightRequest="75" BorderColor="DeepSkyBlue"  HasShadow="True" CornerRadius="10" >
+                            <StackLayout RadioButtonGroup.GroupName="maleFemale" 
+                     Orientation="Horizontal">
+
+                                <RadioButton Value="Male" x:Name="radioButtonMale" 
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged" BorderColor="AliceBlue">
+
+                                    <RadioButton.Content>
+
+                                        <StackLayout>
+
+                                            <Image Source="male.PNG" HeightRequest="50" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                            <Label Text="Male"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                        </StackLayout>
+                                    </RadioButton.Content>
+                                </RadioButton>
+
+                                <RadioButton Value="Female" x:Name="radioButtonFemale" 
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                                    <RadioButton.Content>
+                                        <StackLayout>
+                                            <Image Source="female.PNG" HeightRequest="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                            <Label Text="Female"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                        </StackLayout>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackLayout>
+                        </Frame>
+                        
+                        <!--<Label Grid.Column="2" Text="Gender" Margin="40, 20,20,20" TextColor="red" />-->
+                        <Frame BorderColor="DeepSkyBlue" HeightRequest="75" HasShadow="True" CornerRadius="10"   Grid.Column="1" >
+                            <StackLayout RadioButtonGroup.GroupName="technician" 
+                     Orientation="Horizontal">
+
+                                <RadioButton Value="Electrician" x:Name="radioButtonElectrician" 
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                                    <RadioButton.Content>
+                                        <StackLayout>
+                                            <Image Source="electriciann.PNG" HeightRequest="50" WidthRequest="30"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                            <Label Text="Electric"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                        </StackLayout>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                                <RadioButton Value="Plumber" x:Name="radioButtonPlumber" 
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                                    <RadioButton.Content>
+                                        <StackLayout>
+                                            <Image Source="plumber.PNG" HeightRequest="50" WidthRequest="30"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                            <Label Text="Plumber"
+                               HorizontalOptions="Start"
+                               VerticalOptions="End" />
+                                        </StackLayout>
+                                    </RadioButton.Content>
+                                </RadioButton>
+                            </StackLayout>
+                        </Frame>
+                      
+                    </Grid>
+                </StackLayout>
+              
+
+             
+                <!--<StackLayout Margin="10,0,10,0">
+                    <StackLayout RadioButtonGroup.GroupName="animals" HeightRequest="60"
+                     Orientation="Horizontal">
+                        <Label Text="Gender" Margin="40, 20,20,20" TextColor="red" />
+                        <RadioButton Value="Male" x:Name="radioButtonMale"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                            <RadioButton.Content>
+                                <StackLayout>
+                                    <Image Source="male.PNG" HeightRequest="50" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                    <Label Text="Male"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="Female" x:Name="radioButtonFemale"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                            <RadioButton.Content>
+                                <StackLayout>
+                                    <Image Source="female.PNG" HeightRequest="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                    <Label Text="Female"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </StackLayout>
+
+                    <StackLayout RadioButtonGroup.GroupName="maleFemale" HeightRequest="60"
+                     Orientation="Horizontal">
+                        <Label Text="Gender" Margin="40, 20,20,20" TextColor="red" />
+                        <RadioButton Value="Electrician" x:Name="radioButtonElectrician"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                            <RadioButton.Content>
+                                <StackLayout>
+                                    <Image Source="male.PNG" HeightRequest="50" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                    <Label Text="Electrician"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="Plumber" x:Name="radioButtonPlumber"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                            <RadioButton.Content>
+                                <StackLayout>
+                                    <Image Source="female.PNG" HeightRequest="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                                    <Label Text="Plumber"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </StackLayout>
+                </StackLayout>-->
+                <Label Text="Contact Information" FontSize="Small" FontAttributes="Bold"></Label>
+
+                <StackLayout Margin="10,0,10,0">
+                    <components:OutlinedMaterialEntry
+                        PlaceholderText="Email"
+                        x:Name="email"
+                        Keyboard="Email"
+                        ReturnType="Next"
+                        LeadingIcon="email.png"
+                    />
+                </StackLayout>
+
+                <StackLayout Margin="10,0,10,0">
+                    <components:OutlinedMaterialEntry
+                        PlaceholderText="Address"
+                        x:Name="address"
+                        Keyboard="Text"
+                        ReturnType="Next"
+                        LeadingIcon="home.png"
+                    />
+                </StackLayout>
+
+                <StackLayout Margin="10,0,10,5">
+                    <components:OutlinedMaterialEntry
+                        PlaceholderText="Phone Number"
+                        x:Name="phoneNumber"
+                        Keyboard="Telephone"
+                        ReturnType="Next"
+                        LeadingIcon="phone_call.png"
+                    />
+                </StackLayout>
+
+                <StackLayout Margin="10,0,10,5">
+                    <components:OutlinedMaterialEntry
+                        PlaceholderText="Password"
+                        x:Name="password"
+                        Keyboard="Default"
+                        ReturnType="Next"
+                        IsPassword="True" 
+                        MaxLength="8"
+                        LeadingIcon="password.png"
+                    />
+                </StackLayout>
+
+                <StackLayout Margin="10,0,10,5">
+                    <components:OutlinedMaterialEntry
+                        PlaceholderText="Confirm Password"
+                        x:Name="confirmPassword"
+                        Keyboard="Default"
+                        ReturnType="Next"
+                        IsPassword="True" 
+                        MaxLength="8"
+                        LeadingIcon="password.png"
+                    />
+                </StackLayout>
+
+
+                <Button Text="Save" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="Button_clicked" />
+
+
+
+                <!--<StackLayout
+                Orientation="Vertical"
+                Padding="30"
+                Spacing="15">
+
+                    -->
+                <!--<Entry
+                    Visual="Default"
+                    BackgroundColor="White"
+                    Placeholder="This it's a regular entry" 
+                    PlaceholderColor="Gray"
+                    FontSize="Medium"
+                    TextColor="Black" />-->
+
+                <!--<Entry
+                    Visual="Material"
+                    BackgroundColor="White"
+                    Placeholder="This it's a Xamarin Material Entry" 
+                    PlaceholderColor="Gray" 
+                    FontSize="Medium"
+                    TextColor="Black" />-->
+                <!--
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="Outlined Material Entry"
+                    Keyboard="Text"
+                    ReturnType="Next" />
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="With Helper"
+                    Keyboard="Email"
+                    ReturnType="Next"
+                    HelperText="Helper message" />
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="With char counter"
+                    Keyboard="Chat"
+                    ReturnType="Next"
+                    MaxLength="20" />
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="With leading icon"
+                    Keyboard="Email"
+                    ReturnType="Next"
+                    LeadingIcon="ic_user.png" />
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="With password"
+                    Keyboard="Default"
+                    ReturnType="Next"
+                    IsPassword="True" />
+
+                    <components:OutlinedMaterialEntry
+                    PlaceholderText="With error"
+                    Keyboard="Email"
+                    ReturnType="Next"
+                    HasError="True"
+                    ErrorText="Error message" />
+                </StackLayout>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+
+
+</ContentPage>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickFix.Views.RegisterAsPage">
+
+
+
+
+
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Frame BorderColor="#ffff"
+                   BackgroundColor="#ffff"
+                   HasShadow="False"
+                   HeightRequest="120"
+                   WidthRequest="130"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"
+                   Padding="0">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor"
+                                            Value="#FF3300" />
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="#fff" />
+                                    <Setter Property="BorderColor"
+                                            Value="#F3F2F1" />
+                                    <Setter TargetName="check"
+                                            Property="Opacity"
+                                            Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Grid Margin="4"
+                      WidthRequest="100">
+                    <Grid WidthRequest="18"
+                          HeightRequest="18"
+                          HorizontalOptions="End"
+                          VerticalOptions="Start">
+                        <Ellipse Stroke="Blue"
+                                 Fill="White"
+                                 WidthRequest="16"
+                                 HeightRequest="16"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                        <Ellipse x:Name="check"
+                                 Fill="HotPink"
+                                 WidthRequest="8"
+                                 HeightRequest="8"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                    </Grid>
+                    <ContentPresenter />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="ControlTemplate"
+                    Value="{StaticResource RadioButtonTemplate}" />
+        </Style>
+    </ContentPage.Resources>
+
+
+    <StackLayout HorizontalOptions="Center" Margin="0, 200,0,0">
+
+        <Label FontSize="Large" FontAttributes="Bold" TextColor="red" HorizontalOptions="Center" VerticalOptions="Center">Register As:</Label>
+    <StackLayout Margin="10">
+        <Label Text="Please Select One"  HorizontalOptions="Center" VerticalOptions="Center"/>
+        <StackLayout RadioButtonGroup.GroupName="animals"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <RadioButton Value="Technician"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                <RadioButton.Content>
+                    <StackLayout>
+                        <Image Source="tech.PNG" HeightRequest="80" WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                            <Label Text="Technician"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Value="Consumer"
+                         CheckedChanged="OnAnimalRadioButtonCheckedChanged">
+                <RadioButton.Content>
+                    <StackLayout>
+                            <Image Source="male.png" HeightRequest="80" WidthRequest="80"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+                            <Label Text="Consumer"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End" />
+                    </StackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+        
+        </StackLayout>
+   
+     </StackLayout>
+        <Button Text="Next!" Clicked="OpenUserSelectedRegisterPage"></Button>
+    </StackLayout>
+</ContentPage>

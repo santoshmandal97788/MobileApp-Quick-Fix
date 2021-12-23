@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core"
+             x:Class="QuickFix.App"
+             windows:Application.ImageDirectory="Assets">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="stlContactBtn" TargetType="Button">
+                <Setter Property="TranslationY"     Value="-60"/>
+                <Setter Property="TranslationX"     Value="50"/>
+                <Setter Property="BackgroundColor"  Value="#2193f3"/>
+                <Setter Property="WidthRequest"     Value="56"/>
+                <Setter Property="HeightRequest"    Value="56"/>
+                <Setter Property="CornerRadius"     Value="28"/>
+            </Style>
+
+            <Style x:Key="stlBoardTitle" TargetType="Label">
+                <Setter Property="Padding"           Value="0,30,0,5"/>
+                <Setter Property="TextColor"         Value="#a5a2a2"/>
+                <Setter Property="FontSize"          Value="16"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="stlBoardDesc" TargetType="Label">
+                <Setter Property="FontAttributes"    Value="Bold"/>
+                <Setter Property="FontSize"          Value="16" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="stlMainFrame" TargetType="Frame">
+                <Setter Property="TranslationY"    Value="{OnPlatform iOS='-150', Android='-43'}"/>
+                <Setter Property="HeightRequest"   Value="{OnPlatform iOS='120', Android='180'}"/>
+                <Setter Property="HasShadow"       Value="False" />
+            </Style>
+
+        </ResourceDictionary>
+
+        <DataTemplate x:Key="AnimalTemplate">
+            <Grid Padding="10"
+                  RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="Auto,Auto">
+                <Image Grid.RowSpan="2" 
+                       Source="{Binding ImageUrl}" 
+                       Aspect="AspectFill"
+                       HeightRequest="60" 
+                       WidthRequest="60" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Name}" 
+                       FontAttributes="Bold" />
+                <Label Grid.Row="1"
+                       Grid.Column="1" 
+                       Text="{Binding Location}"
+                       FontAttributes="Italic" 
+                       VerticalOptions="End" />
+            </Grid>
+        </DataTemplate>
+
+      
+
+        <DataTemplate x:Key="AnimalSearchTemplate">
+            <Grid Padding="10"
+                  ColumnDefinitions="0.15*,0.85*">
+                <Image Source="{Binding ImageUrl}"
+                       HeightRequest="40"
+                       WidthRequest="40" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Name}" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+        
+        <!--For Technician Search Handler-->
+
+        <DataTemplate x:Key="TechnicianSearchTemplate">
+            <Grid Padding="10"
+                  ColumnDefinitions="0.15*,0.85*">
+                <Image Source="{Binding CPhoto}"
+                       HeightRequest="40"
+                       WidthRequest="40" />
+                <Label Grid.Column="1"
+                       Text="{Binding TID}"
+                           IsVisible="false"
+                       FontAttributes="Bold" />
+                <Label Grid.Column="1" 
+                       Text="{Binding FullName}" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
+
+
+     
+    </Application.Resources>
+</Application>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickFix.App">
+    -->
+<!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+<!--
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            
+            -->
+<!--Code Added For Contact button Fly over image-->
+<!--
+            <Style x:Key="stlContactBtn" TargetType="Button">
+                <Setter Property="TranslationY"     Value="-50"/>
+                <Setter Property="TranslationX"     Value="45"/>
+                <Setter Property="BackgroundColor"  Value="#2193f3"/>
+                <Setter Property="WidthRequest"     Value="56"/>
+                <Setter Property="HeightRequest"    Value="56"/>
+                <Setter Property="CornerRadius"     Value="28"/>
+            </Style>
+
+            <Style x:Key="stlBoardTitle" TargetType="Label">
+                <Setter Property="Padding"           Value="0,30,0,5"/>
+                <Setter Property="TextColor"         Value="#a5a2a2"/>
+                <Setter Property="FontSize"          Value="16"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="stlBoardDesc" TargetType="Label">
+                <Setter Property="FontAttributes"    Value="Bold"/>
+                <Setter Property="FontSize"          Value="16" />
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="stlMainFrame" TargetType="Frame">
+                <Setter Property="TranslationY"    Value="{OnPlatform iOS='-150', Android='-33'}"/>
+                <Setter Property="HeightRequest"   Value="{OnPlatform iOS='120', Android='228'}"/>
+                <Setter Property="HasShadow"       Value="False" />
+            </Style>
+
+        </ResourceDictionary>
+
+       
+            <Color x:Key="PrimaryColor">#183259</Color>
+            <Color x:Key="SecondaryColor">#3962F1</Color>
+            <Color x:Key="GrayColor">#707070</Color>
+            <Color x:Key="LightGrayColor">#C4C8D6</Color>
+            <Color x:Key="DangerColor">#BE2623</Color>
+
+            -->
+<!-- Font SIZES-->
+<!--
+            <x:Double x:Key="SmallSize">12</x:Double>
+            <x:Double x:Key="NormalSize">14</x:Double>
+            <x:Double x:Key="BigSize">18</x:Double>
+            <x:Double x:Key="LargeSize">24</x:Double>
+            <x:Double x:Key="LargerSize">30</x:Double>
+
+
+
+            <Style x:Key="EntryFrame" TargetType="Frame">
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="Padding" Value="15,0" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
+            <Style x:Key="CustomBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Padding" Value="30,15" />
+            </Style>
+
+          
+              
+    </Application.Resources>
+</Application>-->
+
+
+<!--New code Added for  flylayout-->

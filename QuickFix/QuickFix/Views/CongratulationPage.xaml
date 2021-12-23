@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False"
+             x:Class="QuickFix.Views.CongratulationPage"
+              Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="White">
+                <Grid Margin="20,25" RowDefinitions="250,Auto,Auto" RowSpacing="25">
+                    <Image x:Name="img" Aspect="Fill" Source="congrats.png" />
+
+                    <StackLayout Spacing="15" Grid.Row="1">
+                        <Label Text="Congratulations!" TextColor="{DynamicResource PrimaryColor}" HorizontalTextAlignment="Center" FontFamily="BoldFont" FontSize="{DynamicResource BigSize}" />
+                        <Label Text="You have successfully signed up to Quick Fix  platform, we hope you will find Job or Get your Problem Solved" TextColor="{DynamicResource LightGrayColor}" HorizontalTextAlignment="Center" FontFamily="LightFont" FontSize="{DynamicResource NormalSize}" />
+
+                        <BoxView HeightRequest="30" />
+                    </StackLayout>
+
+                    <Button  Grid.Row="2" Text="Start!" Style="{DynamicResource CustomBtn}" BackgroundColor="{DynamicResource SecondaryColor}" TextColor="White" x:Name="home"  />
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="QuickFix.Controls.FlyoutHeader"
+             HeightRequest="200">
+    <Grid BackgroundColor="Black">
+
+        <Image x:Name="userImg" Aspect="AspectFill"
+                       Source="xamarinstore.jpg"
+                       Opacity="0.6" />
+        <Label Text="Welcome Back" 
+               TextColor="White" 
+               FontAttributes="Italic" 
+               HorizontalTextAlignment="Start"
+               VerticalTextAlignment="Center" />
+        <Label x:Name="userName" Text="Animals" 
+               TextColor="White" 
+               FontAttributes="Bold" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+    </Grid>
+</ContentView>

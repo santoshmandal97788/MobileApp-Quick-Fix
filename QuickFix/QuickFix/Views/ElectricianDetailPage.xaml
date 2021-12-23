@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="QuickFix.Views.ElectricianDetailPage"
+             Title="Electrician Details">
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="{Binding FullName}" 
+                   HorizontalOptions="Center" 
+                   Style="{DynamicResource TitleStyle}" />
+            <Label Text="{Binding Address}" 
+                   FontAttributes="Italic" 
+                   HorizontalOptions="Center" />
+            <Image Source="{Binding CPhoto}" 
+                   HeightRequest="200" 
+                   WidthRequest="200" 
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Email}" 
+                   Style="{DynamicResource BodyStyle}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
