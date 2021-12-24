@@ -49,7 +49,7 @@ namespace QuickFix.Services
             //new code
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(200);
-            client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+            client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
             string jsonData = JsonConvert.SerializeObject(tb);
 
@@ -76,7 +76,7 @@ namespace QuickFix.Services
                 List<TechnicianLists> lstTech = new List<TechnicianLists>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetAsync("api/Technician/GetAllElectrician");
                 response.EnsureSuccessStatusCode();
@@ -105,7 +105,7 @@ namespace QuickFix.Services
             {
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetAsync("api/Technician/GetPlumberbyId?id=" + id);
                 response.EnsureSuccessStatusCode();
@@ -129,7 +129,7 @@ namespace QuickFix.Services
                 List<TechnicianLists> lstTech = new List<TechnicianLists>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetAsync("api/Technician/GetAllPlumber");
                 response.EnsureSuccessStatusCode();
@@ -157,7 +157,7 @@ namespace QuickFix.Services
             {
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetAsync("api/Technician/GetPlumberbyId?id=" + id);
                 response.EnsureSuccessStatusCode();

@@ -14,9 +14,9 @@ namespace QuickFix.Services
     public class AccountService
     {
         //Main URL
-        const string URL = "http://192.168.0.109:45455/";
+        const string URL = "http://192.168.0.113:45456/";
         //For Token URL
-        const string tokenURL = "http://192.168.0.109:45455/token";
+        const string tokenURL = "http://192.168.0.113:45456/token";
 
         public async Task<string> LoginAsync(string UserName, string Password)
         {
@@ -76,7 +76,7 @@ namespace QuickFix.Services
                 client.DefaultRequestHeaders.Authorization = authHeader;
 
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetAsync("api/User/GetUserDetails");
                 response.EnsureSuccessStatusCode();

@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
 
         <!-- 1. Profile picture-->
-        <Image Grid.Row="0" Source="Katty" VerticalOptions="Start" Aspect="AspectFill" HeightRequest="500" />
+        <Image x:Name="image" Grid.Row="0" Source="Katty" VerticalOptions="Start" Aspect="AspectFill" HeightRequest="500" />
 
         <!-- 2. Contact informaqtion frame-->
         <StackLayout Grid.Row="0" BackgroundColor="White" VerticalOptions="End">
@@ -64,7 +64,7 @@
                     <Label Grid.Row="3" Grid.Column="2" Text="Followers" Style="{StaticResource stlBoardTitle}"/>
                     <Label Grid.Row="4" Grid.Column="2" Text="67k" Style="{StaticResource stlBoardDesc}"/>
                     --><!--4. Contact information: Follow button-->
-                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="#2193f3" Text="Edit Profile" Margin="0,20,0,2" FontAttributes="Bold" FontSize="17" HeightRequest="45"/>
+                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" TextColor="White" BackgroundColor="#2193f3" Text="Edit Profile" Margin="0,20,0,2" FontAttributes="Bold" FontSize="17" HeightRequest="45" Clicked="EditProfile_Button_Clicked"/>
                 </Grid>
             </Frame>
         </StackLayout>

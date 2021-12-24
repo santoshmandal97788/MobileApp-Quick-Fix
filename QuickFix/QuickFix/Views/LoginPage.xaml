@@ -66,7 +66,7 @@
 
                                 </StackLayout>
 
-                                <Button Text="SIGN IN" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="Button_clicked" />
+                                <Button Text="Log In" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="Button_clicked" />
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                     <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small"/>
                                     <Label x:Name="signInLabel" Text="Sign Up" TextColor="HotPink" FontAttributes="Bold" FontSize="Small">

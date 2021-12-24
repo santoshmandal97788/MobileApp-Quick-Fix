@@ -14,33 +14,38 @@ namespace QuickFix.Controls
         public FlyoutHeader()
         {
             InitializeComponent();
-            GetUerByToken();
+           //GetUerByToken();
+            string photo = SecureStorage.GetAsync("photo").Result;
+            byte[] bytes = Convert.FromBase64String(photo);
+            ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(bytes));
+            userImg.Source = imageSource;
+            userName.Text = SecureStorage.GetAsync("name").Result;
         }
 
-        async void GetUerByToken()
-        {
-            try
-            {
-                AccountService _accService = new AccountService();
-                var list = await _accService.GetUserByToken();
-               // await SecureStorage.SetAsync("role", list.Role);
-           //     MessagingCenter.Send<FlyoutHeader>(this, list.Role
+        //async void GetUerByToken()
+        //{
+        //    try
+        //    {
+        //        AccountService _accService = new AccountService();
+        //        var list = await _accService.GetUserByToken();
+        //       // await SecureStorage.SetAsync("role", list.Role);
+        //   //     MessagingCenter.Send<FlyoutHeader>(this, list.Role
                   
-           //);
-                List<Users> lst = new List<Users>();
-                ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(list.Photo));
-                lst.Add(new Users() { ID = list.ID, FullName = list.FullName, Email = list.Email, CPhoto = imageSource });
+        //   //);
+        //        List<Users> lst = new List<Users>();
+        //        ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(list.Photo));
+        //        lst.Add(new Users() { ID = list.ID, FullName = list.FullName, Email = list.Email, CPhoto = imageSource });
 
-                Users tList = lst.Where(a => a.ID == list.ID).FirstOrDefault();
-                //BindingContext = tList;
-                userImg.Source = imageSource;
-                userName.Text = tList.FullName;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //        Users tList = lst.Where(a => a.ID == list.ID).FirstOrDefault();
+        //        //BindingContext = tList;
+        //        userImg.Source = imageSource;
+        //        userName.Text = tList.FullName;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
       
     }

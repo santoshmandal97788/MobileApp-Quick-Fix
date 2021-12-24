@@ -67,7 +67,7 @@ namespace QuickFix.Services
             //new code
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(200);
-            client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+            client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
             string jsonData = JsonConvert.SerializeObject(tb);
 
@@ -107,7 +107,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstTech = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetStringAsync("api/User/ShowAllTechnician");
                 var techDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);
@@ -131,7 +131,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstElec = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetStringAsync("api/User/ShowElectricianNearBy");
                 var electricianDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);
@@ -155,7 +155,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstPlum = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.109:45455/");
+                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
 
                 var response = await client.GetStringAsync("api/User/ShowPlumberNearBy");
                 var electricianDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);

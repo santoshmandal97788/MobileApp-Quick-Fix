@@ -35,15 +35,17 @@ namespace QuickFix.Views
             {
                 AccountService _accService = new AccountService();
                 var list = await _accService.GetUserByToken();
-                await SecureStorage.SetAsync("name", list.ID.ToString());
+               
+                await SecureStorage.SetAsync("id", list.ID.ToString());
                 await SecureStorage.SetAsync("name", list.FullName);
-                await SecureStorage.SetAsync("name", list.Gender);
+                await SecureStorage.SetAsync("gender", list.Gender);
                 await SecureStorage.SetAsync("email", list.Email);
                 await SecureStorage.SetAsync("address", list.Address);
-                await SecureStorage.SetAsync("address", list.PhoneNumber);
+                await SecureStorage.SetAsync("phone", list.PhoneNumber);
                 await SecureStorage.SetAsync("role", list.Role);
-                ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(list.Photo));
-               // await SecureStorage.SetAsync("role", imageSource);
+                string base64 = Convert.ToBase64String(list.Photo);
+                await SecureStorage.SetAsync("photo", base64);
+             
                 //  MessagingCenter.Send<LoginPage>(this, list.Role);
                 Application.Current.MainPage = new AppShell();
             }
