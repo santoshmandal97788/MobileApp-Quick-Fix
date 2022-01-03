@@ -15,7 +15,7 @@
           "Xamarin.Essentials": "1.6.0",
           "Xamarin.Forms": "5.0.0.2196",
           "Xamarin.Forms.Maps": "5.0.0.2196",
-          "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.PancakeView": "1.4.2",
           "Xamarin.Forms.Visual.Material": "5.0.0.2196"
         },
         "runtime": {
@@ -108,15 +108,15 @@
           }
         }
       },
-      "Xamarin.Forms.PancakeView/2.3.0.759": {
+      "Xamarin.Forms.PancakeView/1.4.2": {
         "dependencies": {
           "System.ComponentModel": "4.3.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.PancakeView.dll": {
-            "assemblyVersion": "2.0.1.0",
-            "fileVersion": "2.0.1.0"
+            "assemblyVersion": "1.4.1.0",
+            "fileVersion": "1.4.1.0"
           }
         }
       },
@@ -210,12 +210,12 @@
       "path": "xamarin.forms.maps/5.0.0.2196",
       "hashPath": "xamarin.forms.maps.5.0.0.2196.nupkg.sha512"
     },
-    "Xamarin.Forms.PancakeView/2.3.0.759": {
+    "Xamarin.Forms.PancakeView/1.4.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TGVsLJuGd/PKlyhmcBxZnHhHqyhYppzyrdb2q/sy+S6dQYkeGM8A+HmIIHVhbi7r8Sjasa/HRBkOmTSYQOZzhQ==",
-      "path": "xamarin.forms.pancakeview/2.3.0.759",
-      "hashPath": "xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"
+      "sha512": "sha512-0HGhwpvL8780UYmueP3Vazn6hmYB8GYEYyjkcPcW1qmnkYcfMc8h/9RZsDtUC7QFHikxCdxS29Aw8T0XrPETAQ==",
+      "path": "xamarin.forms.pancakeview/1.4.2",
+      "hashPath": "xamarin.forms.pancakeview.1.4.2.nupkg.sha512"
     },
     "Xamarin.Forms.Visual.Material/5.0.0.2196": {
       "type": "package",

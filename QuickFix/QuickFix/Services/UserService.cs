@@ -40,50 +40,65 @@ namespace QuickFix.Services
             tb.Latitude = location.Latitude;
             tb.Longitude = location.Longitude;
             // tb.Photo = rvm.Photo;
-            tb.Country = placemark.CountryName;
-            tb.Province = placemark.AdminArea;
-            tb.PostalCode = placemark.PostalCode;
-            tb.District = placemark.Locality;
-            tb.Locality = placemark.Locality;
 
-            //var json = JsonConvert.SerializeObject(tb);
-            ////HttpContent httpContent = new StreamContent();
-            //StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            //var client = new HttpClient();
+            //client.Timeout = TimeSpan.FromSeconds(200);
+            //client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
-            ////httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-            //var response = client.PostAsync("https://localhost:44357/api/User/Register", content);
-            //var mystring = response.GetAwaiter().GetResult();
-
-            ////string url = "https://localhost:44357/api/User/Register";
-            ////string jsonData = JsonConvert.SerializeObject(tb);
-            ////StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            ////HttpResponseMessage response = await client.PostAsync(url, content);
-            //var mystring = response.GetAwaiter().GetResult();
-            //string result = await response.Content.ReadAsStringAsync();
-            //Response responseData = JsonConvert.DeserializeObject<Response>(result); 
+            //string jsonData = JsonConvert.SerializeObject(tb);
+            // var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
 
+            //HttpResponseMessage response = await client.PostAsync("api/User/Register", content);
+            //var content1 = await response.Content.ReadAsStringAsync();
+            //// this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+            ////var result = await response.Content.ReadAsStringAsync();
 
-            //new code
-            var client = new HttpClient();
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    Response = true;
+            //}
+
+
+            //return Response;
+
+            HttpClient client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(200);
-            client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+            client.BaseAddress = new Uri("http://10.10.11.59:45455/");
+            MultipartFormDataContent content = new MultipartFormDataContent();
+            ByteArrayContent baContent = new ByteArrayContent(tb.Photo);
+            StringContent FullName = new StringContent(tb.FullName);
+            StringContent Gender = new StringContent(tb.Gender);
+            StringContent Email = new StringContent(tb.Email);
+            StringContent PhoneNumber = new StringContent(tb.PhoneNumber);
+            StringContent Address = new StringContent(tb.Address);
+            StringContent Password = new StringContent(tb.Password);
+            StringContent Latitude = new StringContent(tb.Latitude.ToString());
+            StringContent Longitude = new StringContent(tb.Longitude.ToString());
+            content.Add(baContent, "File", "filename.ext");
+            content.Add(FullName, "FullName");
+            content.Add(Gender, "Gender");
+            content.Add(Email, "Email");
+            content.Add(PhoneNumber, "PhoneNumber");
+            content.Add(Address, "Address");
+            content.Add(Password, "Password");
+            content.Add(Latitude, "Latitude");
+            content.Add(Longitude, "Longitude");
 
-            string jsonData = JsonConvert.SerializeObject(tb);
 
-            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("api/User/Register", content);
-            var content1 = await response.Content.ReadAsStringAsync();
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-            //var result = await response.Content.ReadAsStringAsync();
+            //upload MultipartFormDataContent content async and store response in response var
+            var response = await client.PostAsync("api/User/Register", content);
 
+            //read response result as a string async into json var
+            var responsestr = response.Content.ReadAsStringAsync().Result;
             if (response.IsSuccessStatusCode)
             {
                 Response = true;
             }
 
-
             return Response;
+
+
         }
         public class TechnicianDetails
         {
@@ -107,7 +122,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstTech = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetStringAsync("api/User/ShowAllTechnician");
                 var techDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);
@@ -131,7 +146,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstElec = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetStringAsync("api/User/ShowElectricianNearBy");
                 var electricianDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);
@@ -155,7 +170,7 @@ namespace QuickFix.Services
                 List<TechnicianDetails> lstPlum = new List<TechnicianDetails>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetStringAsync("api/User/ShowPlumberNearBy");
                 var electricianDetails = JsonConvert.DeserializeObject<List<TechnicianDetails>>(response);
@@ -170,5 +185,55 @@ namespace QuickFix.Services
                 throw ex;
             }
         }
+        //new mrthod to get all users
+        public async Task<List<ClientLists>> GetAllUsers()
+        {
+
+            try
+            {
+                List<ClientLists> lstusers = new List<ClientLists>();
+                var client = new HttpClient();
+                client.Timeout = TimeSpan.FromSeconds(200);
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
+
+                var response = await client.GetAsync("api/User/GetAllUser");
+                response.EnsureSuccessStatusCode();
+                var responseJSON = await response.Content.ReadAsStringAsync();
+
+                var msg = JsonConvert.DeserializeObject<List<ClientLists>>(responseJSON);
+
+                return msg;
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<ClientLists> GetUserById(int id)
+        {
+
+            try
+            {
+                var client = new HttpClient();
+                client.Timeout = TimeSpan.FromSeconds(200);
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
+
+                var response = await client.GetAsync("api/User/GetClientbyId?id=" + id);
+                response.EnsureSuccessStatusCode();
+                var responseJSON = await response.Content.ReadAsStringAsync();
+
+                var msg = JsonConvert.DeserializeObject<ClientLists>(responseJSON);
+
+                return msg;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

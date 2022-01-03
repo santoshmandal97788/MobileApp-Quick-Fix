@@ -20,12 +20,20 @@ namespace QuickFix.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
+            var properties = App.Current.Properties;
+            if (properties.ContainsKey("username"))
+            {
+                var savedUsername = (string)properties["username"];
+                var savedPassword = (string)properties["password"];
+                EmailEntry.Text = savedUsername;
+                PasswordEntry.Text = savedPassword;
+            }
         }
         private async void Button_clicked(object sender, EventArgs args)
         {
-            //await Navigation.PushAsync(new ChangePasswordPage());
-            //await Navigation.PushModalAsync(new ChangePasswordPage());
-           // await DisplayAlert("Invalid Username and Password", "Invalid Username and Password", "Ok");
+           
+           
+      
             var response = await _service.LoginAsync(EmailEntry.Text, PasswordEntry.Text);
             if (string.IsNullOrEmpty(response))
             {
@@ -43,9 +51,29 @@ namespace QuickFix.Views
                 await SecureStorage.SetAsync("address", list.Address);
                 await SecureStorage.SetAsync("phone", list.PhoneNumber);
                 await SecureStorage.SetAsync("role", list.Role);
+                var role=  SecureStorage.GetAsync("role").Result;
+               // role.ToString();
+                if (role=="technicians")
+                {
+                    await SecureStorage.SetAsync("TType", list.TType.ToString());
+                }
                 string base64 = Convert.ToBase64String(list.Photo);
                 await SecureStorage.SetAsync("photo", base64);
-             
+
+                if (rebemberMe.IsChecked)
+                {
+                    var properties = App.Current.Properties;
+                    if (!properties.ContainsKey("username") && !properties.ContainsKey("password"))
+                    {
+                        properties.Add("username", EmailEntry.Text);
+                        properties.Add("password", PasswordEntry.Text);
+                    }
+                    else
+                    {
+                        properties["username"] = EmailEntry.Text;
+                        properties["password"] = PasswordEntry.Text;
+                    }
+                }
                 //  MessagingCenter.Send<LoginPage>(this, list.Role);
                 Application.Current.MainPage = new AppShell();
             }

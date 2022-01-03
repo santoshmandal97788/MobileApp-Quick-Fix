@@ -16,5 +16,8 @@ namespace QuickFix.Models
         public byte[] Photo { get; set; }
         public string Role { get; set; }
         public ImageSource CPhoto { get; set; }
+        public int TType { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

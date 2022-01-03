@@ -22,7 +22,6 @@ E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\Views\Technic
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.AssemblyInfoInputs.cache
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.AssemblyInfo.cs
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.csproj.CoreCompileInputs.cache
-E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.csprojAssemblyReference.cache
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.dll
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\ref\QuickFix.dll
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.pdb
@@ -32,3 +31,8 @@ E:\QuickFixApp\QuickFix\QuickFix\QuickFix\bin\Debug\netstandard2.0\ref\QuickFix.
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\bin\Debug\netstandard2.0\QuickFix.pdb
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\XamlC.stamp
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\Views\EditProfilePage.xaml.g.cs
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.GeneratedMSBuildEditorConfig.editorconfig
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\Views\ClientDetailPage.xaml.g.cs
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\Views\ClientList.xaml.g.cs
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix\obj\Debug\netstandard2.0\QuickFix.csproj.AssemblyReference.cache

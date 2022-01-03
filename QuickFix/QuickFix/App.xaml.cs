@@ -1,6 +1,7 @@
 ﻿using QuickFix.Services;
 using QuickFix.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,11 +21,19 @@ namespace QuickFix
         {
             InitializeComponent();
 
-           // DependencyService.Register<MockDataStore>();
+            // DependencyService.Register<MockDataStore>();
             //MainPage = new AppShell();
             // MainPage = new GeoLoaction();
-             MainPage = new NavigationPage(new LoginPage());
-            //App.Current.MainPage = new LoginPage();
+            //if (!string.IsNullOrEmpty(SecureStorage.GetAsync("name").Result))
+            //{
+            //    Application.Current.MainPage = new AppShell();
+            //}
+            //else
+            //{
+                MainPage = new NavigationPage(new LoginPage());
+
+            //}
+            //MainPage = new AppShell();
         }
 
         protected override void OnStart()

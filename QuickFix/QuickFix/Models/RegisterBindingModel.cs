@@ -16,13 +16,6 @@ namespace QuickFix.Models
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public byte[] Photo { get; set; }
-        public string Country { get; set; }
-        public string Province { get; set; }
-        public string PostalCode { get; set; }
-        public string District { get; set; }
-        public string Locality { get; set; }
-
-
-
+       
     }
 }

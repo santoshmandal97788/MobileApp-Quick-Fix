@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="QuickFix.Views.ElectricianDetailPage"
              Title="Electrician Details">
-    <ScrollView>
+    <!--<ScrollView>
         <StackLayout Margin="20">
             <Label Text="{Binding FullName}" 
                    HorizontalOptions="Center" 
@@ -18,5 +18,72 @@
             <Label Text="{Binding Email}" 
                    Style="{DynamicResource BodyStyle}" />
         </StackLayout>
-    </ScrollView>
+    </ScrollView>-->
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 1. Profile picture-->
+        <Image x:Name="image" Grid.Row="0" Source="{Binding CPhoto}" VerticalOptions="Start" Aspect="AspectFill" HeightRequest="500" />
+
+        <!-- 2. Contact informaqtion frame-->
+        <StackLayout Grid.Row="0" BackgroundColor="White" VerticalOptions="End">
+            <Frame CornerRadius="40" Style="{StaticResource stlMainFrame}" >
+                <!-- Blocks: 3 and 4 -->
+                <Grid Padding="25,10,25,0" RowSpacing="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- 3. Phone & message buttons-->
+                    <!--<Button Grid.Row="0" Grid.Column="1" Style="{StaticResource stlContactBtn}" HorizontalOptions="End"   ImageSource="Phone"/>-->
+                    <!--<Button Grid.Row="0" Grid.Column="2" Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" ImageSource="Correo"/>-->
+                    <!-- 4. Contact information-->
+                    <Label x:Name="name" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding FullName}" FontAttributes="Bold" FontSize="30"/>
+                    <Label x:Name="address" Grid.Row="1" Grid.Column="0" Text="{Binding Address}" TextColor="#a5a2a2" FontSize="16"/>
+                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="0,5,0,10" FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Phone: " FontAttributes="Bold" />
+                                <Span x:Name="phone" Text="{Binding PhoneNumber}"  />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Padding="0,30,0,0" FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " FontAttributes="Bold" />
+                                <Span x:Name="email" Text="{Binding Email}"  />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <!--4. Contact information: Board inforation-->
+                    <!--
+                    <Label Grid.Row="3" Grid.Column="0" Text="Publications" Style="{StaticResource stlBoardTitle}" />
+                    <Label Grid.Row="4" Grid.Column="0" Text="678" Style="{StaticResource stlBoardDesc}"/>
+
+                    <Label Grid.Row="3" Grid.Column="1" Text="Following" Style="{StaticResource stlBoardTitle}"/>
+                    <Label Grid.Row="4" Grid.Column="1" Text="340" Style="{StaticResource stlBoardDesc}"/>
+
+                    <Label Grid.Row="3" Grid.Column="2" Text="Followers" Style="{StaticResource stlBoardTitle}"/>
+                    <Label Grid.Row="4" Grid.Column="2" Text="67k" Style="{StaticResource stlBoardDesc}"/>
+                    -->
+                    <!--4. Contact information: Follow button-->
+                    <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  TextColor="White" ImageSource="Phone" BackgroundColor="#2193f3" Text="Make Call" Margin="0,20,0,0" FontAttributes="Bold" FontSize="17" HeightRequest="45"  Clicked="MakeCall_Button_Clicked"/>
+                </Grid>
+            </Frame>
+        </StackLayout>
+
+    </Grid>
 </ContentPage>

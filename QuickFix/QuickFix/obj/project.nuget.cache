@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kbjiWKs0Ti0B0LcaXoPRqtCf8lrMUGTANmYq8Q+qrTNGKl8JLJYU7JtVCo6EqUQmWE8CZMcakSIUYotU0u1PEQ==",
+  "dgSpecHash": "sk7xSuaL2S+umqSsFhr0ymUspoMpVu4w2kXSF/a4sQWP2Cp1umwy6nBPWTcfiOegnPe07U8/r1rHhPDdq0uWDw==",
   "success": true,
   "projectFilePath": "E:\\QuickFixApp\\QuickFix\\QuickFix\\QuickFix\\QuickFix.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,7 @@
     "C:\\Users\\Hp\\.nuget\\packages\\xamarin.essentials\\1.6.0\\xamarin.essentials.1.6.0.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2196\\xamarin.forms.maps.5.0.0.2196.nupkg.sha512",
-    "C:\\Users\\Hp\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
+    "C:\\Users\\Hp\\.nuget\\packages\\xamarin.forms.pancakeview\\1.4.2\\xamarin.forms.pancakeview.1.4.2.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\xamarin.forms.visual.material\\5.0.0.2196\\xamarin.forms.visual.material.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -83,5 +83,17 @@ namespace QuickFix.Views
         //        throw ex;
         //    }
         //}
+        private void MakeCall_Button_Clicked(object sender, EventArgs args)
+        {
+            try
+            {
+                PhoneDialer.Open(phone.Text);
+            }
+            catch (Exception ex)
+            {
+
+                DisplayAlert("Unable to make call", "Please enter a number", "Ok");
+            }
+        }
     }
 }

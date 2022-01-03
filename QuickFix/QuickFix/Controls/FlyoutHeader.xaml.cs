@@ -14,7 +14,7 @@ namespace QuickFix.Controls
         public FlyoutHeader()
         {
             InitializeComponent();
-           //GetUerByToken();
+            //GetUerByToken();
             string photo = SecureStorage.GetAsync("photo").Result;
             byte[] bytes = Convert.FromBase64String(photo);
             ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(bytes));

@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:windows="clr-namespace:Xamarin.Forms.PlatformConfiguration.WindowsSpecific;assembly=Xamarin.Forms.Core"
              x:Class="QuickFix.App"
              windows:Application.ImageDirectory="Assets">
     <Application.Resources>
+      
         <ResourceDictionary>
             <Style x:Key="stlContactBtn" TargetType="Button">
                 <Setter Property="TranslationY"     Value="-60"/>
@@ -36,6 +40,11 @@
 
         </ResourceDictionary>
 
+
+
+     
+
+      
         <DataTemplate x:Key="AnimalTemplate">
             <Grid Padding="10"
                   RowDefinitions="Auto,Auto"
@@ -90,8 +99,25 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="CLientSearchTemplate">
+            <Grid Padding="10"
+                  ColumnDefinitions="0.15*,0.85*">
+                <Image Source="{Binding CPhoto}"
+                       HeightRequest="40"
+                       WidthRequest="40" />
+                <Label Grid.Column="1"
+                       Text="{Binding UId}"
+                           IsVisible="false"
+                       FontAttributes="Bold" />
+                <Label Grid.Column="1" 
+                       Text="{Binding FullName}" 
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+            </Grid>
+        </DataTemplate>
 
-     
+
+
     </Application.Resources>
 </Application>
 

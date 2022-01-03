@@ -28,8 +28,8 @@ namespace QuickFix.Services
             tb.PhoneNumber = rvm.PhoneNumber;
             tb.Address = rvm.Address;
             tb.Password = rvm.ConfirmPassword;
-
-            tb.Photo = rvm.Photo;
+           
+            
             //code for location access and getting value
             var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
             cts = new CancellationTokenSource();
@@ -40,32 +40,69 @@ namespace QuickFix.Services
 
             tb.Latitude = location.Latitude;
             tb.Longitude = location.Longitude;
-            // tb.Photo = rvm.Photo;
-            tb.Country = placemark.CountryName;
-            tb.Province = placemark.AdminArea;
-            tb.PostalCode = placemark.PostalCode;
-            tb.District = placemark.Locality;
-            tb.Locality = placemark.Locality;
+            tb.Photo = rvm.Photo;
+            tb.WorkCount = 0;
+
             //new code
-            var client = new HttpClient();
+            //var client = new HttpClient();
+            //client.Timeout = TimeSpan.FromSeconds(200);
+            //client.BaseAddress = new Uri("http://10.10.11.59:45455/");
+
+            //string jsonData = JsonConvert.SerializeObject(tb);
+
+            //var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            //HttpResponseMessage response = await client.PostAsync("api/Technician/Register", content);
+            //var content1 = await response.Content.ReadAsStringAsync();
+            //// this result string should be something like: "{"token":"rgh2ghgdsfds"}"
+            ////var result = await response.Content.ReadAsStringAsync();
+
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    Response = true;
+            //}
+
+
+            //return Response;
+
+
+            HttpClient client = new HttpClient();
             client.Timeout = TimeSpan.FromSeconds(200);
-            client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+            client.BaseAddress = new Uri("http://10.10.11.59:45455/");
+            MultipartFormDataContent content = new MultipartFormDataContent();
+            ByteArrayContent baContent = new ByteArrayContent(tb.Photo);
+            StringContent FullName = new StringContent(tb.FullName);
+            StringContent Gender = new StringContent(tb.Gender);
+            StringContent Email = new StringContent(tb.Email);
+            StringContent PhoneNumber = new StringContent(tb.PhoneNumber);
+            StringContent TType = new StringContent(tb.TType.ToString());
+            StringContent Address = new StringContent(tb.Address);
+            StringContent Password = new StringContent(tb.Password);
+            StringContent Latitude = new StringContent(tb.Latitude.ToString());
+            StringContent Longitude = new StringContent(tb.Longitude.ToString());
+            content.Add(baContent, "File", "filename.ext");
+            content.Add(FullName, "FullName");
+            content.Add(Gender, "Gender");
+            content.Add(Email, "Email");
+            content.Add(PhoneNumber, "PhoneNumber");
+            content.Add(Address, "Address");
+            content.Add(Password, "Password");
+            content.Add(TType, "TType");
+            content.Add(Latitude, "Latitude");
+            content.Add(Longitude, "Longitude");
 
-            string jsonData = JsonConvert.SerializeObject(tb);
 
-            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("api/Technician/Register", content);
-            var content1 = await response.Content.ReadAsStringAsync();
-            // this result string should be something like: "{"token":"rgh2ghgdsfds"}"
-            //var result = await response.Content.ReadAsStringAsync();
+            //upload MultipartFormDataContent content async and store response in response var
+            var response = await client.PostAsync("api/Technician/Register", content);
 
+            //read response result as a string async into json var
+            var responsestr = response.Content.ReadAsStringAsync().Result;
             if (response.IsSuccessStatusCode)
             {
                 Response = true;
             }
 
-
             return Response;
+
         }
 
         public async Task<List<TechnicianLists>> GetAllElectrician()
@@ -76,7 +113,7 @@ namespace QuickFix.Services
                 List<TechnicianLists> lstTech = new List<TechnicianLists>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetAsync("api/Technician/GetAllElectrician");
                 response.EnsureSuccessStatusCode();
@@ -105,7 +142,7 @@ namespace QuickFix.Services
             {
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetAsync("api/Technician/GetPlumberbyId?id=" + id);
                 response.EnsureSuccessStatusCode();
@@ -129,7 +166,7 @@ namespace QuickFix.Services
                 List<TechnicianLists> lstTech = new List<TechnicianLists>();
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetAsync("api/Technician/GetAllPlumber");
                 response.EnsureSuccessStatusCode();
@@ -157,7 +194,7 @@ namespace QuickFix.Services
             {
                 var client = new HttpClient();
                 client.Timeout = TimeSpan.FromSeconds(200);
-                client.BaseAddress = new Uri("http://192.168.0.113:45456/");
+                client.BaseAddress = new Uri("http://10.10.11.59:45455/");
 
                 var response = await client.GetAsync("api/Technician/GetPlumberbyId?id=" + id);
                 response.EnsureSuccessStatusCode();

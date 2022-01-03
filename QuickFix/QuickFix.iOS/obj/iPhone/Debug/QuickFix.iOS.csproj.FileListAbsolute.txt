@@ -4,7 +4,6 @@ E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\actool\_BundleRes
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\coremlc\_PartialAppManifest.items
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\optimized\
-E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.csprojAssemblyReference.cache
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.csproj.CoreCompileInputs.cache
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\bin\iPhone\Debug\QuickFix.iOS.exe
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\bin\iPhone\Debug\QuickFix.iOS.pdb
@@ -63,3 +62,9 @@ E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\bin\iPhone\Debug\QuickFix.pdb
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.csproj.CopyComplete
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.exe
 E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.pdb
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\actool\_ProcessedImageAssetsPath.items
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\ibtool\_ProcessedInterfaceDefinitionsPath.items
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\coremlc\_ProcessedCoreMLModelsPath.items
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\_ProcessedBundleResourcesPath.items
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\_ProcessedContentPath.items
+E:\QuickFixApp\QuickFix\QuickFix\QuickFix.iOS\obj\iPhone\Debug\QuickFix.iOS.csproj.AssemblyReference.cache

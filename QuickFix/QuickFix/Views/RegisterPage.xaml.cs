@@ -49,7 +49,7 @@ namespace QuickFix.Views
                 rvm.Address = address.Text;
                 rvm.Password = password.Text;
                 rvm.Photo = imgData;                
-                rvm.Password = confirmPassword.Text;
+                rvm.ConfirmPassword = confirmPassword.Text;
                 bool response = await us.RegisterUserAsync(rvm);
                 if (response)
                 {

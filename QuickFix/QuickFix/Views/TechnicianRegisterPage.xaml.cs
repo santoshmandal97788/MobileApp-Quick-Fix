@@ -19,6 +19,7 @@ namespace QuickFix.Views
         {
             InitializeComponent();
             DetectLocation();
+          
         }
         TechnicianService us = new TechnicianService();
         byte[] imgData;
@@ -38,11 +39,11 @@ namespace QuickFix.Views
                 rvm.LastName = lastName.Text;
                 if (radioButtonMale.IsChecked)
                 {
-                    rvm.Gender = true;
+                    rvm.Gender = "Male";
                 }
                 else
                 {
-                    rvm.Gender = false;
+                    rvm.Gender = "Female";
                 }
                 if (radioButtonElectrician.IsChecked)
                 {
@@ -57,7 +58,7 @@ namespace QuickFix.Views
                 rvm.Address = address.Text;
                 rvm.Password = password.Text;
                 rvm.Photo = imgData;
-                rvm.Password = confirmPassword.Text;
+                rvm.ConfirmPassword = confirmPassword.Text;
                 bool response = await us.RegisterTechnicianAsync(rvm);
                 if (response)
                 {

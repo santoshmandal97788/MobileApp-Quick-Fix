@@ -23,6 +23,9 @@ namespace QuickFix.Views {
         private global::QuickFix.CustomRenderer.CustomEntry PasswordEntry;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.CheckBox rebemberMe;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label signInLabel;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -30,6 +33,7 @@ namespace QuickFix.Views {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoginPage));
             EmailEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::QuickFix.CustomRenderer.CustomEntry>(this, "EmailEntry");
             PasswordEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::QuickFix.CustomRenderer.CustomEntry>(this, "PasswordEntry");
+            rebemberMe = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CheckBox>(this, "rebemberMe");
             signInLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "signInLabel");
         }
     }

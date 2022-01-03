@@ -20,9 +20,13 @@ namespace QuickFix {
         private global::Xamarin.Forms.Shell shell;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.MenuItem logout;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AppShell));
             shell = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Shell>(this, "shell");
+            logout = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.MenuItem>(this, "logout");
         }
     }
 }

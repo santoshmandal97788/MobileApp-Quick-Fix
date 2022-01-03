@@ -8,8 +8,9 @@ namespace QuickFix.ViewModels
     public class AppViewModel : BaseViewModel
     {
         private bool isUser;
-
+        private bool istechnician;
         public bool IsUser { get => isUser; set => SetProperty(ref isUser, value); }
+        public bool IsTechnician { get => istechnician; set => SetProperty(ref istechnician, value); }
         public AppViewModel()
         {
           
@@ -17,10 +18,12 @@ namespace QuickFix.ViewModels
             if (role=="user")
             {
                 IsUser = true;
+                IsTechnician = false;
             }
             else
             {
                 IsUser = false;
+                IsTechnician = true;
             }
 
         }

@@ -30,7 +30,7 @@ namespace QuickFix.Views
         }
         private async void EditProfile_Button_Clicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new ChangePasswordPage());
+            await Navigation.PushAsync(new EditProfilePage());
         }
     }
 }

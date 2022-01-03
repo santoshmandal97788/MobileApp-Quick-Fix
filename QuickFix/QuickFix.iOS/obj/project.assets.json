@@ -261,7 +261,7 @@
           "Xamarin.Essentials": "1.6.0",
           "Xamarin.Forms": "5.0.0.2196",
           "Xamarin.Forms.Maps": "5.0.0.2196",
-          "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.PancakeView": "1.4.2",
           "Xamarin.Forms.Visual.Material": "5.0.0.2196"
         },
         "compile": {
@@ -532,7 +532,7 @@
           "Xamarin.Essentials": "1.6.0",
           "Xamarin.Forms": "5.0.0.2196",
           "Xamarin.Forms.Maps": "5.0.0.2196",
-          "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.PancakeView": "1.4.2",
           "Xamarin.Forms.Visual.Material": "5.0.0.2196"
         },
         "compile": {
@@ -803,7 +803,7 @@
           "Xamarin.Essentials": "1.6.0",
           "Xamarin.Forms": "5.0.0.2196",
           "Xamarin.Forms.Maps": "5.0.0.2196",
-          "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.PancakeView": "1.4.2",
           "Xamarin.Forms.Visual.Material": "5.0.0.2196"
         },
         "compile": {
@@ -1074,7 +1074,7 @@
           "Xamarin.Essentials": "1.6.0",
           "Xamarin.Forms": "5.0.0.2196",
           "Xamarin.Forms.Maps": "5.0.0.2196",
-          "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.PancakeView": "1.4.2",
           "Xamarin.Forms.Visual.Material": "5.0.0.2196"
         },
         "compile": {
@@ -1824,7 +1824,8 @@
   },
   "packageFolders": {
     "C:\\Users\\Hp\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1837,10 +1838,12 @@
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

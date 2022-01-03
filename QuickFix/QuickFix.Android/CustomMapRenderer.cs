@@ -141,7 +141,7 @@ namespace QuickFix.Droid
                 }
                 if (infoGender != null)
                 {
-                    infoGender.Text = "Distance Away: " + customPin.DisatanceAway;
+                    infoGender.Text = "Distance Away: " + customPin.DisatanceAway +"km";
                 }
              
                 return view;
